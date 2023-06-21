@@ -71,7 +71,7 @@ public class FightManager : MonoSingleton<FightManager>
         }
 
     }
-    public bool BuySomething( int spent)
+    public bool BuySomething(float spent)
     {
         if (catMoney >= spent)
         {
@@ -83,6 +83,15 @@ public class FightManager : MonoSingleton<FightManager>
             return false;
         }
     }
+    //the same as above but for gaining money
+    public void GainMoney(float gained)
+    {
+        catMoney += gained;
+        if (catMoney > catMoneyCap)
+        {
+            catMoney = catMoneyCap;
+        }
 
+    }
 
 }

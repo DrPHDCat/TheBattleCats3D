@@ -9,6 +9,8 @@ public class SkipButton : MonoBehaviour,
     public bool isAQuitButton;
     public bool isABuyBackButton;
     public float cost;
+    public AudioClip purchaseSound;
+    public AudioClip notEnoughFundsSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,12 +42,18 @@ public class SkipButton : MonoBehaviour,
         }
         if (isABuyBackButton)
         {
-            if (true)
+            if (FightManager.instance.BuySomething(100))
             {
                 BattleCanvas.instance.GetComponent<Animator>().Play("Buyback");
+                GetComponent<AudioSource>().clip = purchaseSound;
                 GetComponent<AudioSource>().Play();
             }
+            else
+            {
+                GetComponent<AudioSource>().clip = notEnoughFundsSound;
+                GetComponent<AudioSource>().Play();
+            
+            }
         }
-
     }
 }

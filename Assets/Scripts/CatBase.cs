@@ -53,19 +53,14 @@ public class CatBase : MonoBehaviour
                     if (latestEnemy.GetComponentInChildren<Enemy>())
                     {
                         latestEnemy.GetComponentInChildren<Enemy>().maxHealth *= percentageList[i] / 100;
-                    }
-                    else
-                    {
-                        latestEnemy.GetComponent<Enemy>().maxHealth *= percentageList[i] / 100;
+                        latestEnemy.GetComponentInChildren<Enemy>().netWorth *= percentageList[i] / 100;
+                        latestEnemy.GetComponentInChildren<Enemy>().singletargetdamage *= percentageList[i] / 100;
                     }
                     if (latestEnemy.GetComponentInChildren<Hitter>())
                     {
                         latestEnemy.GetComponentInChildren<Hitter>().damage *= percentageList[i] / 100;
                     }
-                    else
-                    {
-                        latestEnemy.GetComponent<Hitter>().damage *= percentageList[i] / 100;
-                    }
+
                     enemyList.Remove(enemyList[i]);
                     spawntimeList.Remove(spawntimeList[i]);
                     percentageList.Remove(percentageList[i]);
