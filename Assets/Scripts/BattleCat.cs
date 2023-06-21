@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 
 public class BattleCat : MonoBehaviour
@@ -31,7 +28,7 @@ public class BattleCat : MonoBehaviour
         parentObject.transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + Input.GetAxis("Mouse X") * 3.5f, transform.eulerAngles.z);
         transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + Input.GetAxis("Mouse X") * 3.5f, transform.eulerAngles.z);
         transform.parent = parentObject.transform;
-        
+
         if (Input.GetKey(KeyCode.W))
         {
             goForward = Speed;
