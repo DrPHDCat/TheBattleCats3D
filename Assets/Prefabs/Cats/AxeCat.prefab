@@ -146,11 +146,11 @@ Transform:
   m_GameObject: {fileID: 1624819280045764076}
   m_LocalRotation: {x: -0.39131525, y: -0.6967011, z: -0.3226725, w: 0.507309}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.174589, y: 0.1769439, z: 0.2477595}
+  m_LocalScale: {x: 0.17458902, y: 0.1769439, z: 0.24775948}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1895431978236930202}
-  m_RootOrder: 1
+  m_Father: {fileID: 1965654340455082160}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -57.849, y: -121.373, z: 24.168}
 --- !u!33 &3055850398073633011
 MeshFilter:
@@ -215,9 +215,10 @@ GameObject:
   - component: {fileID: 1895431978236930203}
   - component: {fileID: 1895431978236930200}
   - component: {fileID: 1895431978236930201}
+  - component: {fileID: 2597973845881340066}
   m_Layer: 0
   m_Name: AxeCat
-  m_TagString: Untagged
+  m_TagString: PlayerUnit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,7 +236,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2145776287726617068}
-  - {fileID: 2145776288204666710}
+  - {fileID: 1965654340455082160}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -266,15 +267,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
-  knockbacks: 3
+  knockbacks: 4
   speed: 5
   possibletargets: []
+  health: 0
   maxHealth: 250
-  range: 3
+  range: 2
   singletargetdamage: 50
   hitSmoke: {fileID: 2881722757498517800, guid: 9f206efa790c4e74f9f575656321fa3d, type: 3}
   singleTarget: 0
   netWorth: 0
+  portrait: {fileID: 21300000, guid: aed5e50bea2b7504aaf061e6503f169c, type: 3}
+  cooldown: 10
+  cost: 250
 --- !u!95 &1895431978236930201
 Animator:
   serializedVersion: 5
@@ -296,6 +301,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &2597973845881340066
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895431978236930181}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2951202244870055943
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +400,38 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3287532194191466065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1965654340455082160}
+  m_Layer: 0
+  m_Name: battlecat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1965654340455082160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287532194191466065}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2145776288204666710}
+  m_Father: {fileID: 1895431978236930202}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4090147566017888529
 GameObject:
   m_ObjectHideFlags: 0

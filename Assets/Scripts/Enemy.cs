@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public List<Transform> possibletargets;
     float lowestRange;
-    float health;
+    public float health;
     public float maxHealth;
     int remainingKnockbacks;
     float knockbackThreshold;
@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
     public GameObject hitSmoke;
     public bool singleTarget;
     public float netWorth;
+    public Sprite portrait;
+    public float cooldown;
+    public float cost;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,6 +92,10 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<Animator>().SetTrigger("Attack");
         }
+        else
+        {
+            GetComponent<Animator>().ResetTrigger("Attack");
+        }
         if (target != null && Vector3.Distance(transform.position, target.GetComponent<Collider>().ClosestPoint(transform.position)) > range && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Knockback"))
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.position.x, transform.position.y, target.position.z), Time.deltaTime * speed);
@@ -99,7 +106,11 @@ public class Enemy : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(new Vector3(target.position.x, transform.position.y, target.position.z) - transform.position, Vector3.up);
 
         }
+        if (!GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Knockback") && health <= 0 )
+        {
 
+            GetComponent<Animator>().Play("Knockback",0);
+        }
 
 
     }

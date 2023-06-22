@@ -638,7 +638,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ccc193da2f33dff4398e672cdc8a3dfb, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1099,6 +1099,8 @@ MonoBehaviour:
   isAQuitButton: 1
   isABuyBackButton: 0
   cost: 0
+  purchaseSound: {fileID: 0}
+  notEnoughFundsSound: {fileID: 0}
 --- !u!114 &1624238763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1600,6 +1602,8 @@ MonoBehaviour:
   isAQuitButton: 0
   isABuyBackButton: 0
   cost: 0
+  purchaseSound: {fileID: 0}
+  notEnoughFundsSound: {fileID: 0}
 --- !u!1001 &8709626741256803813
 PrefabInstance:
   m_ObjectHideFlags: 0

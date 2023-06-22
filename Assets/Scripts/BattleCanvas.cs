@@ -15,8 +15,8 @@ public class BattleCanvas : MonoSingleton<BattleCanvas>
     }
     public void ResetCameraPos()
     {
-        Camera.current.transform.position = FightManager.instance.transform.position;
-        Camera.current.transform.rotation = FightManager.instance.transform.rotation;
+        Camera.main.transform.position = FightManager.instance.transform.position;
+        Camera.main.transform.rotation = FightManager.instance.transform.rotation;
     }
     //thefollowingfunction is called with an animation event
     public void BuyBack()

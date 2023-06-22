@@ -45,6 +45,7 @@
      <Compile Include="Assets\Scripts\CatHeroManager.cs" />
      <Compile Include="Assets\Scripts\BattleCanvas.cs" />
      <Compile Include="Assets\Scripts\MonoSingleton.cs" />
+     <Compile Include="Assets\Scripts\UnitControlMenu.cs" />
      <Compile Include="Assets\Scripts\SkipButton.cs" />
      <Compile Include="Assets\Scripts\CatMoneyDisplay.cs" />
      <Compile Include="Assets\Scripts\FacePlayer.cs" />
@@ -53,7 +54,6 @@
      <Compile Include="Assets\Scripts\CameraMark.cs" />
      <Compile Include="Assets\Scripts\FightManager.cs" />
      <Compile Include="Assets\Scripts\Hitter.cs" />
-     <Compile Include="Assets\UnitControlMenu.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.21f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

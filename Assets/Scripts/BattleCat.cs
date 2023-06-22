@@ -6,7 +6,7 @@ public class BattleCat : MonoBehaviour
     int goLeft;
     int goForward;
     int goBack;
-    float health;
+    public float health;
     float maxHealth;
     bool knockedBack;
     bool zerohealthknockedback;

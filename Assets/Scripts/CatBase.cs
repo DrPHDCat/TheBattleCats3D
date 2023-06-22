@@ -105,13 +105,15 @@ public class CatBase : MonoBehaviour
                 FightManager.instance.EnemyWon = true;
                 for (int i = 0; i < FightManager.instance.PlayerUnits.Count; i++)
                 {
-                    FightManager.instance.EnemyUnits[i].TakeDamage(99999999);
+                    FightManager.instance.PlayerUnits[i].health = 0;
+                    FightManager.instance.PlayerUnits[i].DestroyCheck();
                 }
                 if (FightManager.instance.CatHero != null)
                 {
-                    if (FightManager.instance.CatHero.GetComponent<BattleCat>())
+                    if (FightManager.instance.CatHero.GetComponentInChildren<BattleCat>())
                     {
-                        FightManager.instance.CatHero.GetComponent<BattleCat>().TakeDamage(99999999);
+                        FightManager.instance.CatHero.GetComponent<BattleCat>().health = 0;
+                        FightManager.instance.CatHero.GetComponent<BattleCat>().DestroyCheck();
                     }
                 }
             }

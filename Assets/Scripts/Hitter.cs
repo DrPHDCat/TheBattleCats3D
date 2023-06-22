@@ -54,6 +54,12 @@ public class Hitter : MonoBehaviour
                 GameObject smoke = Instantiate(hitSmoke, other.ClosestPoint(transform.position), Quaternion.identity);
                 smoke.GetComponent<AudioSource>().enabled = false;
             }
+            if (other.gameObject.CompareTag("PlayerUnit"))
+            {
+                
+                other.GetComponent<Enemy>().TakeDamage(damage);
+                Instantiate(hitSmoke, other.ClosestPoint(transform.position), Quaternion.identity);
+            }
         }
     }
 }
