@@ -96,7 +96,7 @@ public class Enemy : MonoBehaviour
         {
             GetComponent<Animator>().ResetTrigger("Attack");
         }
-        if (target != null && Vector3.Distance(transform.position, target.GetComponent<Collider>().ClosestPoint(transform.position)) > range && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Knockback"))
+        if (target != null && Vector3.Distance(transform.position, target.GetComponent<Collider>().ClosestPoint(transform.position)) > range && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Knockback") && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.position.x, transform.position.y, target.position.z), Time.deltaTime * speed);
 

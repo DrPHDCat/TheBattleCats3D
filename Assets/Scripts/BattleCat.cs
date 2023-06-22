@@ -101,38 +101,6 @@ public class BattleCat : MonoBehaviour
             BattleCanvas.instance.GetComponent<Animator>().Play("ResetCamPos");
         }
     }
-    public void DisableLockToY(int huh)
-    {
-        if (huh != 1)
-        {
-            GetComponent<Rigidbody>().constraints |= RigidbodyConstraints.FreezePositionY;
-
-        }
-        else
-        {
-            GetComponent<Rigidbody>().constraints &= RigidbodyConstraints.FreezePositionY;
-        }
-
-    }
-    public void DisableRootMotion(int guh)
-    {
-        if (guh != 1)
-        {
-            GetComponent<Animator>().applyRootMotion = true;
-        }
-        else
-        {
-            GetComponent<Animator>().applyRootMotion = false;
-        }
-    }
-    public void StopPlayback()
-    {
-        GetComponent<Animator>().StopPlayback();
-    }
-    public void OnDestroy()
-    {
-        FightManager.instance.CatHero = null;
-    }
 }
 
 //GetComponent<Rigidbody>().velocity = new Vector3(transform.right.x * 5, transform.right.y * 5, transform.right.z * 5);
