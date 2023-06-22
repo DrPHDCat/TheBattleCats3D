@@ -84,7 +84,7 @@ public class Enemy : MonoBehaviour
             }
         }
         // if is a single target and is in range of the target, and is not being knocked back or attacking it will play an animation called Attack
-        Debug.Log(Vector3.Distance(transform.position, target.position));
+       
         if (Vector3.Distance(transform.position, target.GetComponent<Collider>().ClosestPoint(transform.position)) <= range && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Knockback") && !GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
             GetComponent<Animator>().SetTrigger("Attack");
@@ -179,6 +179,11 @@ public class Enemy : MonoBehaviour
                 target.GetComponent<CatBase>().TakeDamage(singletargetdamage);
                 GameObject smoke = Instantiate(hitSmoke, target.GetComponentInChildren<Collider>().ClosestPoint(transform.position), Quaternion.identity);
                 smoke.GetComponent<AudioSource>().enabled = false;
+            }
+            if (target.gameObject.CompareTag("PlayerUnit"))
+            {
+                target.GetComponent<Enemy>().TakeDamage(singletargetdamage);
+                GameObject smoke = Instantiate(hitSmoke, target.GetComponentInChildren<Collider>().ClosestPoint(transform.position), Quaternion.identity);
             }
         }
         }

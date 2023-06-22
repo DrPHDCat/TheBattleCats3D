@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\CameraMark.cs" />
      <Compile Include="Assets\Scripts\FightManager.cs" />
      <Compile Include="Assets\Scripts\Hitter.cs" />
+     <Compile Include="Assets\UnitControlMenu.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.21f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

@@ -13,6 +13,8 @@ public class FollowCam : MonoBehaviour
     {
         if (GameObject.FindObjectOfType(typeof(CameraMark)) != null)
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             float mouseChange = -Input.GetAxis("Mouse Y") * 3.5f;
             if (mouseChange + transform.eulerAngles.x >= 90 && mouseChange + transform.eulerAngles.x < 180)
             {
@@ -23,6 +25,12 @@ public class FollowCam : MonoBehaviour
                 mouseChange = -89.9f - transform.eulerAngles.x;
             }
             transform.SetPositionAndRotation(MonoSingleton<CameraMark>.instance.transform.position, Quaternion.Euler(transform.eulerAngles.x + mouseChange, MonoSingleton<CameraMark>.instance.transform.eulerAngles.y - 54, transform.eulerAngles.z));
+            
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }
