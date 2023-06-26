@@ -45,6 +45,7 @@
      <Compile Include="Assets\Scripts\CatHeroManager.cs" />
      <Compile Include="Assets\Scripts\BattleCanvas.cs" />
      <Compile Include="Assets\Scripts\MonoSingleton.cs" />
+     <Compile Include="Assets\Scripts\UnitSpawnButton.cs" />
      <Compile Include="Assets\Scripts\UnitControlMenu.cs" />
      <Compile Include="Assets\Scripts\SkipButton.cs" />
      <Compile Include="Assets\Scripts\CatMoneyDisplay.cs" />

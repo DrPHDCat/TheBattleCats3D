@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FightManager : MonoSingleton<FightManager>
@@ -19,6 +20,10 @@ public class FightManager : MonoSingleton<FightManager>
     public CatHeroType CatHeroType;
     public float catMoney;
     public float catMoneyCap;
+    public GameObject pauseMenu;
+    public GameObject unintrusivePause;
+    public bool paused;
+    public bool unintrusivelyPaused;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +39,7 @@ public class FightManager : MonoSingleton<FightManager>
         }
         //increase cat money by 10 per second unless at the cap number
         if (catMoney < catMoneyCap) {
-            catMoney += 5 * Time.deltaTime;
+            catMoney += 10 * Time.deltaTime;
         }
         // if cat money bigger than cap then make it the same as cap
         if (catMoney > catMoneyCap)
@@ -44,6 +49,46 @@ public class FightManager : MonoSingleton<FightManager>
         // if cat money less than 0 then make it 0
         if (catMoney < 0)   {
             catMoney = 0;
+        }
+        //pauses the game and shows the pause menu if the player presses escape, if unintrusively paused then it closes unintrusive pause menu and opens normal pause menu
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (unintrusivelyPaused)
+            {
+                Time.timeScale = 0;
+                unintrusivePause.SetActive(false);
+                unintrusivelyPaused = false;
+                paused = true;
+                pauseMenu.SetActive(true);
+            }
+            else if (!paused)
+            {
+                Time.timeScale = 0;
+                paused = true;
+                pauseMenu.SetActive(true);
+
+            }
+            else
+            {
+                Time.timeScale = 1;
+                paused = false;
+                pauseMenu.SetActive(false);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.P) && !paused)
+        {
+            if (!unintrusivelyPaused)
+            {
+                Time.timeScale = 0;
+                unintrusivePause.SetActive(true);
+                unintrusivelyPaused = true;
+            }
+            else
+            {
+                Time.timeScale = 1;
+                unintrusivePause.SetActive(false);
+                unintrusivelyPaused = false;
+            }
         }
     }
     // Update is called once per frame

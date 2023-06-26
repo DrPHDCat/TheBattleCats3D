@@ -32,7 +32,7 @@ public class CatBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponentInChildren<UnityEngine.UI.Text>().text = health + " / " + maxHealth;
+        GetComponentInChildren<UnityEngine.UI.Text>().text = Mathf.Round(health) + " / " + maxHealth;
         time += Time.deltaTime;
         if (enemy)
         {

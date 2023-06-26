@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UnitControlMenu : MonoBehaviour
+public class UnitControlMenu : MonoBehaviour,
+    IPointerClickHandler
 {
     [SerializeField]
     private AudioClip openSound;
@@ -31,73 +34,87 @@ public class UnitControlMenu : MonoBehaviour
             }
             else
             {
-                
+
                 transform.GetChild(i).GetChild(0).localScale = new Vector3(1, 1, 1);
             }
             transform.GetChild(i).GetComponent<Image>().sprite = units[i].GetComponentInChildren<Enemy>().portrait;
             transform.GetChild(i).GetComponentInChildren<Text>().text = units[i].GetComponentInChildren<Enemy>().cost.ToString();
         }
-        if (!FightManager.instance.FightEnded) {
-        if (transform.parent.GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("UnitMenuOpen"))
+        if (transform.childCount != units.Length)
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            for (int i = units.Length; i < 10; i++)
             {
-                transform.parent.GetComponent<Animator>().Play("UnitMenuClose"); 
-                GetComponent<AudioSource>().PlayOneShot(openSound);
+                if (transform.childCount != units.Length)
+                {
+                    Destroy(transform.GetChild(i).gameObject);
+                }
+
             }
         }
-        else if (!transform.parent.GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("UnitMenuOpen"))
+
+        if (!FightManager.instance.FightEnded)
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (transform.parent.GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("UnitMenuOpen"))
             {
-                transform.parent.GetComponent<Animator>().Play("UnitMenuOpen");        
-                GetComponent<AudioSource>().PlayOneShot(closeSound);
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    transform.parent.GetComponent<Animator>().Play("UnitMenuClose");
+                    GetComponent<AudioSource>().PlayOneShot(closeSound);
+                }
+            }
+            else if (!transform.parent.GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("UnitMenuOpen"))
+            {
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    transform.parent.GetComponent<Animator>().Play("UnitMenuOpen");
+                    GetComponent<AudioSource>().PlayOneShot(openSound);
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                BuyUnit(0);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                BuyUnit(1);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                BuyUnit(2);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                BuyUnit(3);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                BuyUnit(4);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                BuyUnit(5);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha7))
+            {
+                BuyUnit(6);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha8))
+            {
+                BuyUnit(7);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha9))
+            {
+                BuyUnit(8);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                BuyUnit(9);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            BuyUnit(0);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            BuyUnit(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            BuyUnit(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            BuyUnit(3);
-        }
-        if  (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            BuyUnit(4);
-        }
-        if  (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            BuyUnit(5);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            BuyUnit(6);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            BuyUnit(7);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            BuyUnit(8);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            BuyUnit(9);
-        }}
     }
     public void BuyUnit(int index)
     {
-        if (units[index] != null && cooldowns[index] <= 0 && FightManager.instance.BuySomething(units[0].GetComponentInChildren<Enemy>().cost) && index >= 0 && index < units.Length)
+        if (units[index] != null && cooldowns[index] <= 0 && FightManager.instance.BuySomething(units[index].GetComponentInChildren<Enemy>().cost) && index >= 0 && index < units.Length)
         {
             Instantiate(units[index], FightManager.instance.PlayerBase.transform.position + FightManager.instance.transform.right * 3, Quaternion.identity);
             cooldowns[index] = units[index].GetComponentInChildren<Enemy>().cooldown;
@@ -106,6 +123,26 @@ public class UnitControlMenu : MonoBehaviour
         else
         {
             GetComponent<AudioSource>().PlayOneShot(notEnoughFundsSound);
+        }
+    }
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    {
+        if (!FightManager.instance.FightEnded)
+        {
+            if (transform.parent.GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("UnitMenuOpen"))
+            {
+
+                transform.parent.GetComponent<Animator>().Play("UnitMenuClose");
+                GetComponent<AudioSource>().PlayOneShot(closeSound);
+
+            }
+            else if (!transform.parent.GetComponent<Animator>().GetCurrentAnimatorStateInfo(1).IsName("UnitMenuOpen"))
+            {
+
+                transform.parent.GetComponent<Animator>().Play("UnitMenuOpen");
+                GetComponent<AudioSource>().PlayOneShot(openSound);
+
+            }
         }
     }
 }

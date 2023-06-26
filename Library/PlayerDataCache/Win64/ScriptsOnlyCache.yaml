@@ -16,6 +16,7 @@ ScriptsOnlyBuild:
     - MoveDown
     - SkipButton
     - UnitControlMenu
+    - UnitSpawnButton
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -115,27 +116,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4560}
     - Class: 114
-      Script: {instanceID: 5038}
+      Script: {instanceID: 4974}
     - Class: 114
-      Script: {instanceID: 5140}
+      Script: {instanceID: 5040}
     - Class: 114
-      Script: {instanceID: 5190}
+      Script: {instanceID: 5142}
     - Class: 114
-      Script: {instanceID: 5932}
+      Script: {instanceID: 5192}
     - Class: 114
-      Script: {instanceID: 5972}
+      Script: {instanceID: 5934}
     - Class: 114
-      Script: {instanceID: 6192}
+      Script: {instanceID: 5974}
     - Class: 114
-      Script: {instanceID: 6778}
+      Script: {instanceID: 6194}
     - Class: 114
-      Script: {instanceID: 6926}
+      Script: {instanceID: 6780}
     - Class: 114
-      Script: {instanceID: 7230}
+      Script: {instanceID: 6928}
     - Class: 114
-      Script: {instanceID: 7578}
+      Script: {instanceID: 7232}
     - Class: 114
-      Script: {instanceID: 7616}
+      Script: {instanceID: 7580}
+    - Class: 114
+      Script: {instanceID: 7618}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -216,19 +219,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3496}
     - Class: 114
-      Script: {instanceID: 5140}
+      Script: {instanceID: 5142}
     - Class: 114
-      Script: {instanceID: 5190}
+      Script: {instanceID: 5192}
     - Class: 114
-      Script: {instanceID: 5932}
+      Script: {instanceID: 5934}
     - Class: 114
-      Script: {instanceID: 6192}
+      Script: {instanceID: 6194}
     - Class: 114
-      Script: {instanceID: 6778}
+      Script: {instanceID: 6780}
     - Class: 114
-      Script: {instanceID: 7230}
+      Script: {instanceID: 7232}
     - Class: 114
-      Script: {instanceID: 7616}
+      Script: {instanceID: 7618}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -297,13 +300,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2764}
     - Class: 114
-      Script: {instanceID: 5140}
+      Script: {instanceID: 5142}
     - Class: 114
-      Script: {instanceID: 5190}
+      Script: {instanceID: 5192}
     - Class: 114
-      Script: {instanceID: 5932}
+      Script: {instanceID: 5934}
     - Class: 114
-      Script: {instanceID: 6778}
+      Script: {instanceID: 6780}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -857,6 +860,12 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
+      Hash: f450bd92c660880e07a6cb4e4f93cd6d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UnitSpawnButton
+  - hash:
+      serializedVersion: 2
       Hash: 80348423fe4d867fb13b7baa569c5a24
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1157,7 +1166,7 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: 12fa954bf8514d586768998cd2a8f059
+      Hash: f7934e46191351d1a06f504064b0b6f0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FightManager

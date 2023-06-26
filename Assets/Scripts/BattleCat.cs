@@ -23,12 +23,15 @@ public class BattleCat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject parentObject = transform.parent.gameObject;
-        transform.parent = null;
-        parentObject.transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + Input.GetAxis("Mouse X") * 3.5f, transform.eulerAngles.z);
-        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + Input.GetAxis("Mouse X") * 3.5f, transform.eulerAngles.z);
-        transform.parent = parentObject.transform;
-
+        if (!FightManager.instance.paused && !FightManager.instance.unintrusivelyPaused) { 
+        if (!Input.GetKey(KeyCode.Q))
+        {
+            GameObject parentObject = transform.parent.gameObject;
+            transform.parent = null;
+            parentObject.transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + Input.GetAxis("Mouse X") * 3.5f, transform.eulerAngles.z);
+            transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + Input.GetAxis("Mouse X") * 3.5f, transform.eulerAngles.z);
+            transform.parent = parentObject.transform;
+        }
         if (Input.GetKey(KeyCode.W))
         {
             goForward = Speed;
@@ -73,6 +76,7 @@ public class BattleCat : MonoBehaviour
         {
             transform.GetChild(0).GetComponent<Animator>().SetTrigger("Slash");
         }
+    }
 
     }
     public void TakeDamage(float damage)
