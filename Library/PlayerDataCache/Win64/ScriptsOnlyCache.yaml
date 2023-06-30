@@ -138,7 +138,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7580}
     - Class: 114
-      Script: {instanceID: 7618}
+      Script: {instanceID: 7620}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -231,7 +231,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7232}
     - Class: 114
-      Script: {instanceID: 7618}
+      Script: {instanceID: 7620}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -884,7 +884,7 @@ ScriptsOnlyBuild:
     className: PanelEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 782dea0c56e6126534ca9c3fc169d632
+      Hash: 3b7bb172c7705c3aac514c8ad090157e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SkipButton
@@ -1166,7 +1166,7 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: f7934e46191351d1a06f504064b0b6f0
+      Hash: 3803ecbd90626d43c7d9f01b32708ff7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FightManager

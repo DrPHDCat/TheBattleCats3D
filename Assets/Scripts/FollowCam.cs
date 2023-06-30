@@ -13,7 +13,7 @@ public class FollowCam : MonoBehaviour
     {
         if (GameObject.FindObjectOfType(typeof(CameraMark)) != null)
         {
-            if (!Input.GetKey(KeyCode.Q))
+            if (!Input.GetKey(KeyCode.Q) && !FightManager.instance.paused)
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;

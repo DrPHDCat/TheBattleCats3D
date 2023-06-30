@@ -23,7 +23,7 @@ public class BattleCat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!FightManager.instance.paused && !FightManager.instance.unintrusivelyPaused) { 
+        if (!FightManager.instance.paused) { 
         if (!Input.GetKey(KeyCode.Q))
         {
             GameObject parentObject = transform.parent.gameObject;

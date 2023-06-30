@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\SkipButton.cs" />
     <Compile Include="Assets\Scripts\CatMoneyDisplay.cs" />
     <Compile Include="Assets\Scripts\FacePlayer.cs" />
+    <Compile Include="Assets\CheckIfCompleted.cs" />
     <Compile Include="Assets\Scripts\AnimEvents.cs" />
     <Compile Include="Assets\Scripts\FollowCam.cs" />
     <Compile Include="Assets\Scripts\CameraMark.cs" />
