@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public enum CatHeroType
@@ -13,7 +12,7 @@ public static class CatHeroManager
     public static GameObject GetCatHero(CatHeroType type)
     {
         string prefabPath = CatHeroesPath + type.ToString();
-        Debug.Log(prefabPath);
+        
         GameObject prefab = Resources.Load<GameObject>(prefabPath);
 
         if (prefab == null)

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 
 public class BattleCat : MonoBehaviour
@@ -9,7 +6,7 @@ public class BattleCat : MonoBehaviour
     int goLeft;
     int goForward;
     int goBack;
-    float health;
+    public float health;
     float maxHealth;
     bool knockedBack;
     bool zerohealthknockedback;
@@ -26,12 +23,15 @@ public class BattleCat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject parentObject = transform.parent.gameObject;
-        transform.parent = null;
-        parentObject.transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + Input.GetAxis("Mouse X") * 3.5f, transform.eulerAngles.z);
-        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + Input.GetAxis("Mouse X") * 3.5f, transform.eulerAngles.z);
-        transform.parent = parentObject.transform;
-        
+        if (!FightManager.instance.paused) { 
+        if (!Input.GetKey(KeyCode.Q))
+        {
+            GameObject parentObject = transform.parent.gameObject;
+            transform.parent = null;
+            parentObject.transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + Input.GetAxis("Mouse X") * 3.5f, transform.eulerAngles.z);
+            transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + Input.GetAxis("Mouse X") * 3.5f, transform.eulerAngles.z);
+            transform.parent = parentObject.transform;
+        }
         if (Input.GetKey(KeyCode.W))
         {
             goForward = Speed;
@@ -76,6 +76,7 @@ public class BattleCat : MonoBehaviour
         {
             transform.GetChild(0).GetComponent<Animator>().SetTrigger("Slash");
         }
+    }
 
     }
     public void TakeDamage(float damage)
@@ -103,38 +104,6 @@ public class BattleCat : MonoBehaviour
             Destroy(transform.parent.gameObject);
             BattleCanvas.instance.GetComponent<Animator>().Play("ResetCamPos");
         }
-    }
-    public void DisableLockToY(int huh)
-    {
-        if (huh != 1)
-        {
-            GetComponent<Rigidbody>().constraints |= RigidbodyConstraints.FreezePositionY;
-
-        }
-        else
-        {
-            GetComponent<Rigidbody>().constraints &= RigidbodyConstraints.FreezePositionY;
-        }
-
-    }
-    public void DisableRootMotion(int guh)
-    {
-        if (guh != 1)
-        {
-            GetComponent<Animator>().applyRootMotion = true;
-        }
-        else
-        {
-            GetComponent<Animator>().applyRootMotion = false;
-        }
-    }
-    public void StopPlayback()
-    {
-        GetComponent<Animator>().StopPlayback();
-    }
-    public void OnDestroy()
-    {
-        FightManager.instance.CatHero = null;
     }
 }
 

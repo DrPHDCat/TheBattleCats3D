@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CatBase : MonoBehaviour
@@ -34,7 +32,7 @@ public class CatBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponentInChildren<UnityEngine.UI.Text>().text = health + " / " + maxHealth;
+        GetComponentInChildren<UnityEngine.UI.Text>().text = Mathf.Round(health) + " / " + maxHealth;
         time += Time.deltaTime;
         if (enemy)
         {
@@ -55,19 +53,14 @@ public class CatBase : MonoBehaviour
                     if (latestEnemy.GetComponentInChildren<Enemy>())
                     {
                         latestEnemy.GetComponentInChildren<Enemy>().maxHealth *= percentageList[i] / 100;
-                    }
-                    else
-                    {
-                        latestEnemy.GetComponent<Enemy>().maxHealth *= percentageList[i] / 100;
+                        latestEnemy.GetComponentInChildren<Enemy>().netWorth *= percentageList[i] / 100;
+                        latestEnemy.GetComponentInChildren<Enemy>().singletargetdamage *= percentageList[i] / 100;
                     }
                     if (latestEnemy.GetComponentInChildren<Hitter>())
                     {
                         latestEnemy.GetComponentInChildren<Hitter>().damage *= percentageList[i] / 100;
                     }
-                    else
-                    {
-                        latestEnemy.GetComponent<Hitter>().damage *= percentageList[i] / 100;
-                    }
+
                     enemyList.Remove(enemyList[i]);
                     spawntimeList.Remove(spawntimeList[i]);
                     percentageList.Remove(percentageList[i]);
@@ -112,13 +105,15 @@ public class CatBase : MonoBehaviour
                 FightManager.instance.EnemyWon = true;
                 for (int i = 0; i < FightManager.instance.PlayerUnits.Count; i++)
                 {
-                    FightManager.instance.EnemyUnits[i].TakeDamage(99999999);
+                    FightManager.instance.PlayerUnits[i].health = 0;
+                    FightManager.instance.PlayerUnits[i].DestroyCheck();
                 }
                 if (FightManager.instance.CatHero != null)
                 {
-                    if (FightManager.instance.CatHero.GetComponent<BattleCat>())
+                    if (FightManager.instance.CatHero.GetComponentInChildren<BattleCat>())
                     {
-                        FightManager.instance.CatHero.GetComponent<BattleCat>().TakeDamage(99999999);
+                        FightManager.instance.CatHero.GetComponent<BattleCat>().health = 0;
+                        FightManager.instance.CatHero.GetComponent<BattleCat>().DestroyCheck();
                     }
                 }
             }

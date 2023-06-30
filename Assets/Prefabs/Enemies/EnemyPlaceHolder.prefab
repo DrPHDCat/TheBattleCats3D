@@ -294,8 +294,12 @@ MonoBehaviour:
   isEnemy: 1
   knockbacks: 5
   speed: 3
+  possibletargets: []
   maxHealth: 100
   range: 1.18
+  singletargetdamage: 0
+  hitSmoke: {fileID: 0}
+  netWorth: 5000
 --- !u!1 &9034434311869183719
 GameObject:
   m_ObjectHideFlags: 0

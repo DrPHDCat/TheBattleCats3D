@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Hitter : MonoBehaviour
 {
@@ -56,6 +53,12 @@ public class Hitter : MonoBehaviour
                 other.GetComponent<CatBase>().TakeDamage(damage);
                 GameObject smoke = Instantiate(hitSmoke, other.ClosestPoint(transform.position), Quaternion.identity);
                 smoke.GetComponent<AudioSource>().enabled = false;
+            }
+            if (other.gameObject.CompareTag("PlayerUnit"))
+            {
+                
+                other.GetComponent<Enemy>().TakeDamage(damage);
+                Instantiate(hitSmoke, other.ClosestPoint(transform.position), Quaternion.identity);
             }
         }
     }

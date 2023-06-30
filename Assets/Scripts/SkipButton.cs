@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class SkipButton : MonoBehaviour,
     IPointerClickHandler
@@ -11,6 +10,11 @@ public class SkipButton : MonoBehaviour,
     public bool isAQuitButton;
     public bool isABuyBackButton;
     public float cost;
+    public bool isAGoBackToMenuButton;
+    public bool isAResumeButton;
+    public bool isAGoToCampaignMenuButton;
+    public AudioClip purchaseSound;
+    public AudioClip notEnoughFundsSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,12 +46,32 @@ public class SkipButton : MonoBehaviour,
         }
         if (isABuyBackButton)
         {
-            if (true)
+            if (FightManager.instance.BuySomething(100))
             {
                 BattleCanvas.instance.GetComponent<Animator>().Play("Buyback");
+                GetComponent<AudioSource>().clip = purchaseSound;
                 GetComponent<AudioSource>().Play();
             }
+            else
+            {
+                GetComponent<AudioSource>().clip = notEnoughFundsSound;
+                GetComponent<AudioSource>().Play();
+
+            }
         }
-        
+        if (isAResumeButton)
+        {
+            FightManager.instance.Pause(PauseOption.Unpause);
+        }
+        if (isAGoBackToMenuButton)
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        }
+        if (isAGoToCampaignMenuButton)
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("EOCMenu", LoadSceneMode.Single);
+        }
     }
 }
