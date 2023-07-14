@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets/Scripts/IWillBecomeBackMyMoneyEnemy.cs" />
-     <Compile Include="Assets/CheckIfCompleted.cs" />
+     <Compile Include="Assets/Scripts/CheckIfCompleted.cs" />
      <Compile Include="Assets/Scripts/MoveDown.cs" />
      <Compile Include="Assets/Scripts/IWillBecomeBackMyMoney.cs" />
      <Compile Include="Assets/Scripts/UnitControlMenu.cs" />
@@ -45,17 +45,20 @@
      <Compile Include="Assets/Scripts/CatBase.cs" />
      <Compile Include="Assets/Scripts/Enemy.cs" />
      <Compile Include="Assets/Scripts/CatHeroManager.cs" />
+     <Compile Include="Assets/Scripts/CatFetcher.cs" />
      <Compile Include="Assets/Scripts/BattleCanvas.cs" />
      <Compile Include="Assets/Scripts/CatMoneyDisplay.cs" />
      <Compile Include="Assets/Scripts/MonoSingleton.cs" />
      <Compile Include="Assets/Scripts/SkipButton.cs" />
      <Compile Include="Assets/Scripts/FacePlayer.cs" />
      <Compile Include="Assets/Scripts/AnimEvents.cs" />
+     <Compile Include="Assets/Scripts/CatFoodCounter.cs" />
      <Compile Include="Assets/Scripts/FollowCam.cs" />
      <Compile Include="Assets/Scripts/UnitSpawnButton.cs" />
      <Compile Include="Assets/Scripts/CameraMark.cs" />
      <Compile Include="Assets/Scripts/FightManager.cs" />
      <Compile Include="Assets/Scripts/Hitter.cs" />
+     <Compile Include="Assets/Scripts/LoadoutMenuUnitController.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/Edith/Unity/Hub/Editor/2021.3.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

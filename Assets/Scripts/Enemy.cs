@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     public Sprite portrait;
     public float cooldown;
     public float cost;
+    public string unitName;
     // Start is called before the first frame update
     void Start()
     {

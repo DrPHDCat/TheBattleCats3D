@@ -15,6 +15,7 @@ public class SkipButton : MonoBehaviour,
     public bool isAGoToCampaignMenuButton;
     public AudioClip purchaseSound;
     public AudioClip notEnoughFundsSound;
+    public bool isALoadoutButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +47,7 @@ public class SkipButton : MonoBehaviour,
         }
         if (isABuyBackButton)
         {
-            if (FightManager.instance.BuySomething(100))
+            if (FightManager.instance.BuySomething(cost))
             {
                 BattleCanvas.instance.GetComponent<Animator>().Play("Buyback");
                 GetComponent<AudioSource>().clip = purchaseSound;
@@ -62,6 +63,7 @@ public class SkipButton : MonoBehaviour,
         if (isAResumeButton)
         {
             FightManager.instance.Pause(PauseOption.Unpause);
+            GetComponent<AudioSource>().Play();
         }
         if (isAGoBackToMenuButton)
         {
@@ -72,6 +74,11 @@ public class SkipButton : MonoBehaviour,
         {
             Time.timeScale = 1;
             SceneManager.LoadScene("EOCMenu", LoadSceneMode.Single);
+        }
+        if (isALoadoutButton)
+        {
+            Camera.main.transform.GetChild(0).GetComponent<Animator>().Play("LoadoutOpen");
+            GetComponent<AudioSource>().Play();
         }
     }
 }
